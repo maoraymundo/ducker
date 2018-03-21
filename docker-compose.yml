@@ -12,6 +12,7 @@ services:
         ports: 
             - '80:80'
         volumes:
+            - ./logs/web:/var/log/apache2
             - ./src:/var/www/html
         links: 
             - db

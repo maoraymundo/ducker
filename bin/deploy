@@ -1,4 +1,2 @@
 #!/bin/sh
-docker stop ducker_php_1
-docker stop ducker_db_1
 docker-compose up --build -d --force-recreate
