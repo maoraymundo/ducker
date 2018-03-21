@@ -1,0 +1,7 @@
+FROM mysql:5.6
+MAINTAINER Mao
+
+ENV MYSQL_DATABASE=thespaceinbetween \
+    MYSQL_ROOT_PASSWORD=root
+
+EXPOSE :3306
