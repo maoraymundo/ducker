@@ -1,18 +1,51 @@
 version: '2'
 
 services:
-    db:
-        build: ./mysql
-        ports:
-            - '3306:3306'
-        environment:
-            MYSQL_ROOT_PASSWORD: root
-    php:
+    # mysql:
+    #     build: ./mysql
+    #     ports:
+    #         - '3306:3306'
+    #     environment:
+    #         MYSQL_ROOT_PASSWORD: root
+    apache:
         build: ./apache
         ports: 
+            - '8888:80'
+        volumes:
+            - ./logs/apache:/var/log/apache2
+            - ./src:/var/www/html
+        # links: 
+        #     - mysql
+
+    nginx:
+        # image: 'nginx:latest'
+        build: ./nginx
+        ports:
             - '80:80'
         volumes:
-            - ./logs/web:/var/log/apache2
-            - ./src:/var/www/html
-        links: 
-            - db
+            - './src:/var/www/html'
+        links:
+            - phpfpm
+    phpfpm:
+        image: 'php:7-fpm'
+        volumes:
+            - './src:/var/www/html'
+    mysql:
+        image: 'mariadb'
+        ports:
+            - '3306:3306'
+        volumes:
+            - ./logs/db:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+    phpmyadmin:
+        image: 'phpmyadmin/phpmyadmin'
+        restart: always
+        ports:
+           - '8080:80'
+        links:
+            - mysql:mysql
+        environment:
+            MYSQL_USERNAME: root
+            MYSQL_ROOT_PASSWORD: root
+            PMA_HOST: mysql

@@ -3,5 +3,3 @@ MAINTAINER Mao
 
 ENV MYSQL_DATABASE=thespaceinbetween \
     MYSQL_ROOT_PASSWORD=root
-
-EXPOSE :3306

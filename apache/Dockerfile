@@ -11,6 +11,4 @@ ADD ./custom.host.conf /etc/apache2/sites-available/
 RUN ln -s /etc/apache2/sites-available/custom.host.conf /etc/apache2/sites-enabled/
 RUN a2enmod rewrite
 
-EXPOSE :80
-
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
