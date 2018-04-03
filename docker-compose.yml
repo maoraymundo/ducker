@@ -18,7 +18,6 @@ services:
         #     - mysql
 
     nginx:
-        # image: 'nginx:latest'
         build: ./nginx
         ports:
             - '80:80'
@@ -49,3 +48,9 @@ services:
             MYSQL_USERNAME: root
             MYSQL_ROOT_PASSWORD: root
             PMA_HOST: mysql
+    ng:
+        image: node
+        ports:
+            - '3000:80'
+        volumes:
+            - './src/assets/ng:/var/www/html/assets/ng'
