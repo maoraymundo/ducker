@@ -48,9 +48,7 @@ services:
             MYSQL_USERNAME: root
             MYSQL_ROOT_PASSWORD: root
             PMA_HOST: mysql
-    ng:
-        image: node
+    ngnode:
+        build: ./ngnode
         ports:
             - '3000:80'
-        volumes:
-            - './src/assets/ng:/var/www/html/assets/ng'
