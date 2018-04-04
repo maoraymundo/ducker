@@ -6,7 +6,7 @@
 * PHP7 FPM
 * MariaDB
 * PhpMyAdmin [localhost:8080]
-* NodeJS
+* Angular Quickstart [localhost:3000]
 
 ````
 ./bin/deploy
