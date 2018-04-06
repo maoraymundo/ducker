@@ -1,3 +1,9 @@
 #!/bin/sh
-docker stop $(docker ps -q)
-docker-compose up -d --build --force-recreate
+
+# docker stop $(docker ps -q)
+# docker-compose up -d --build --force-recreate
+# docker rm $(docker ps -q)
+# docker rmi $(docker images -q)
+
+docker build ngnode -t ducker_ngnode
+docker run -it -v $(pwd)/src/assets/main/src/app:/usr/src/app/main/src/app -p 3000:80 ducker_ngnode npm start

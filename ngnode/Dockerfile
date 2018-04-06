@@ -1,9 +1,8 @@
 FROM node:6
 
-RUN mkdir -p /usr/src/app
-COPY ./assets /usr/src/app
+RUN mkdir -p /usr/src/app/main
+WORKDIR /usr/src/app/main
 
-WORKDIR /usr/src/app
+COPY ./main /usr/src/app/main/
+
 RUN npm install
-
-CMD ["npm", "start"]
