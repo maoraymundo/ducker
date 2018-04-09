@@ -50,7 +50,10 @@ services:
     #         PMA_HOST: mysql
     ngnode:
         build: ./ngnode
-        # ports:
-        #     - '3000:80'
-        # volumes:
-        #     - './src/assets/main/src/app:/usr/src/app/main/src/app'
+        command: npm start
+        ports:
+            - '3000:80'
+        volumes:
+            - '/src/assets/ng/src/app:/usr/src/app/ng/src/app'
+    # reactnode:
+    #     build: ./reactnode

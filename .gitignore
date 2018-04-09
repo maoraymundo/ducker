@@ -1,3 +1,5 @@
 logs/apache/*
 logs/db/*
 logs/nginx/*
+src/assets/ng/src/app/*.js
+src/assets/ng/src/app/*.js.map
