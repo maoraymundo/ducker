@@ -1,0 +1,9 @@
+<p>{{ text }}</p>
+<div>
+    <form (submit)="previewContent($event);">
+        <button type="submit">Click button</button>
+    </form>
+</div>
+<div *ngIf="preview">
+    {{ preview }}
+</div>
