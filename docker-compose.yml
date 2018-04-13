@@ -16,7 +16,6 @@ services:
     #         - ./src:/var/www/html
     #     # links: 
     #     #     - mysql
-
     # nginx:
     #     build: ./nginx
     #     ports:
@@ -48,12 +47,32 @@ services:
     #         MYSQL_USERNAME: root
     #         MYSQL_ROOT_PASSWORD: root
     #         PMA_HOST: mysql
-    ngnode:
-        build: ./ngnode
-        command: npm start
-        ports:
-            - '3000:80'
-        volumes:
-            - '/src/assets/ng/src/app:/usr/src/app/ng/src/app'
+
+    ########################
+    # ngnode:
+    #     build: ./ngnode
     # reactnode:
     #     build: ./reactnode
+
+    ######################## 
+    figured:
+        image: hitalos/laravel:latest
+        ports: 
+            - '80:80'
+        volumes:
+            - './src/figured:/var/www'
+        links:
+            - db
+        environment:
+            DB_HOST: db
+            DB_DATABASE: figured
+            DB_USERNAME: user
+            DB_PASSWORD: password
+            DB_CONNECTION: mysql
+    db:
+        image: mysql
+        environment:
+            MYSQL_DATABASE: figured
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
+            MYSQL_ROOT_PASSWORD: password
