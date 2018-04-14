@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Blog;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
     }
 
     /**
@@ -23,6 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $blogs = Blog::with(['user'])->where('status', '2')->get();
+
+        return view('home.home', [
+            'blogs' => $blogs
+        ]);
+    }
+
+    public function blog($id)
+    {
+        $blog = Blog::find($id);
+
+        return view('home.blog', [
+            'blog' => $blog
+        ]);
     }
 }

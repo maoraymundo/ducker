@@ -5,25 +5,22 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-require('froala-editor/js/froala_editor.pkgd.min');
-require('froala-editor/css/froala_editor.pkgd.min.css')
-require('font-awesome/css/font-awesome.css')
-require('froala-editor/css/froala_style.min.css')
+//require('./bootstrap');
 
-window.Vue = require('vue');
+//window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+// import wysiwyg from "vue-wysiwyg";
 
-import VueFroala from 'vue-froala-wysiwyg';
-Vue.use(VueFroala);
+// Vue.use(wysiwyg, {
+//       hideModules: { "image": true },
+//   }); 
 
-Vue.component('richeditor', require('./components/RicheditorComponent.vue'));
+// const app = new Vue({
+//     el: '#app',
 
-const app = new Vue({
-    el: '#app'
-});
+// });
