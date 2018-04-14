@@ -6,6 +6,10 @@
  */
 
 require('./bootstrap');
+require('froala-editor/js/froala_editor.pkgd.min');
+require('froala-editor/css/froala_editor.pkgd.min.css')
+require('font-awesome/css/font-awesome.css')
+require('froala-editor/css/froala_style.min.css')
 
 window.Vue = require('vue');
 
@@ -15,7 +19,10 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+import VueFroala from 'vue-froala-wysiwyg';
+Vue.use(VueFroala);
+
+Vue.component('richeditor', require('./components/RicheditorComponent.vue'));
 
 const app = new Vue({
     el: '#app'

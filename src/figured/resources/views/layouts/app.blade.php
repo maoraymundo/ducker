@@ -11,14 +11,16 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -44,6 +46,9 @@
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
+                            <li><a href="{{ route('get.admin.dashboard') }}" class="nav-link">Dashboard</a></li>
+                            <li><a href="{{ route('get.admin.blog.add') }}" class="nav-link">Add +</a></li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -71,5 +76,10 @@
             @yield('content')
         </main>
     </div>
+<script src="{{ mix('js/app.js') }}"></script>
+<script type="text/javascript">
+@yield('bottom_js')
+</script>
+
 </body>
 </html>
