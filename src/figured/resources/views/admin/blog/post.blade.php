@@ -94,7 +94,7 @@ $(document).ready(function() {
             [ 'view', [ 'undo', 'redo', 'fullscreen', 'codeview', 'help' ] ]
         ]
     });
-    var content = {!! json_encode($blog->content) !!};
+    var content = {!! json_encode($blog->content) !blog.};
     $('.summernote').summernote('code', content);
 });
 @endsection
